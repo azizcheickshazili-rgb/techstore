@@ -98,3 +98,15 @@ GitHub Actions exécute automatiquement :
 ## Note de sécurité
 
 Aucune clé API ou token GitHub n'est nécessaire dans l'application. Les tokens GitHub servent uniquement à l'authentification Git et ne doivent jamais être placés dans le code source.
+
+## Configuration Flutter Web
+
+Le dépôt contient volontairement le dossier `web/` afin que le projet soit reconnu comme une application Flutter Web dès le checkout.
+
+La CI vérifie la présence de `web/index.html` avant de lancer :
+
+```bash
+flutter build web --release
+```
+
+Aucune API key n'est nécessaire : le catalogue est chargé depuis `assets/data/products.json`.

@@ -1,0 +1,10 @@
+{
+  "name": "TechStore",
+  "short_name": "TechStore",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0b1220",
+  "theme_color": "#0b1220",
+  "description": "Boutique e-commerce de matériel informatique.",
+  "orientation": "portrait-primary"
+}

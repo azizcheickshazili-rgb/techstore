@@ -29,5 +29,8 @@ jobs:
       - name: Test
         run: flutter test
 
+      - name: Verify Flutter Web configuration
+        run: test -f web/index.html
+
       - name: Build web
         run: flutter build web --release
