@@ -34,3 +34,27 @@ jobs:
 
       - name: Build web
         run: flutter build web --release
+
+      - name: Build Android APK
+        run: flutter build apk --release
+
+      - name: Package APK
+        run: |
+          mkdir -p artifacts
+          cp build/app/outputs/flutter-apk/app-release.apk artifacts/techstore-release.apk
+          cd artifacts
+          zip -9 techstore-release-apk.zip techstore-release.apk
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: techstore-android-apk
+          path: artifacts/techstore-release-apk.zip
+          if-no-files-found: error
+
+      - name: Upload Web artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: techstore-web-build
+          path: build/web
+          if-no-files-found: error
