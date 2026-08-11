@@ -1,0 +1,152 @@
+[
+  {
+    "id": "lap-001",
+    "name": "Lenovo ThinkPad E14 Gen 5",
+    "category": "Ordinateurs",
+    "price": 425000,
+    "oldPrice": 465000,
+    "rating": 4.8,
+    "stock": 7,
+    "brand": "Lenovo",
+    "description": "Portable professionnel 14 pouces, pensé pour les études, le développement et la productivité.",
+    "specs": [
+      "Intel Core i5-1335U",
+      "16 Go RAM",
+      "512 Go SSD NVMe",
+      "Écran 14\" FHD"
+    ],
+    "image": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=900",
+    "badge": "Meilleure vente"
+  },
+  {
+    "id": "lap-002",
+    "name": "ASUS Vivobook 15 OLED",
+    "category": "Ordinateurs",
+    "price": 515000,
+    "oldPrice": 555000,
+    "rating": 4.7,
+    "stock": 5,
+    "brand": "ASUS",
+    "description": "Portable polyvalent avec écran OLED, idéal pour la création et le travail quotidien.",
+    "specs": [
+      "Intel Core i7",
+      "16 Go RAM",
+      "512 Go SSD",
+      "OLED 15,6\""
+    ],
+    "image": "https://images.unsplash.com/photo-1517336714739-489689fd1ca8?w=900",
+    "badge": "Premium"
+  },
+  {
+    "id": "mon-001",
+    "name": "Dell UltraSharp 27 USB-C",
+    "category": "Écrans",
+    "price": 365000,
+    "oldPrice": 399000,
+    "rating": 4.9,
+    "stock": 4,
+    "brand": "Dell",
+    "description": "Écran 27 pouces professionnel avec USB-C et excellente précision d'affichage.",
+    "specs": [
+      "27\" QHD",
+      "IPS",
+      "USB-C 90W",
+      "100% sRGB"
+    ],
+    "image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=900",
+    "badge": "Pro"
+  },
+  {
+    "id": "kbd-001",
+    "name": "Keychron K8 Pro",
+    "category": "Périphériques",
+    "price": 85000,
+    "oldPrice": 95000,
+    "rating": 4.8,
+    "stock": 12,
+    "brand": "Keychron",
+    "description": "Clavier mécanique sans fil compact, confortable pour coder et travailler.",
+    "specs": [
+      "Hot-swap",
+      "Bluetooth + USB-C",
+      "Switchs mécaniques",
+      "RGB"
+    ],
+    "image": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=900",
+    "badge": "Populaire"
+  },
+  {
+    "id": "mouse-001",
+    "name": "Logitech MX Master 3S",
+    "category": "Périphériques",
+    "price": 72000,
+    "rating": 4.9,
+    "stock": 18,
+    "brand": "Logitech",
+    "description": "Souris professionnelle ergonomique et silencieuse pour une utilisation intensive.",
+    "specs": [
+      "8 000 DPI",
+      "MagSpeed",
+      "Bluetooth",
+      "USB-C"
+    ],
+    "image": "https://images.unsplash.com/photo-1527814050087-3793815479db?w=900",
+    "badge": "Choix pro"
+  },
+  {
+    "id": "ssd-001",
+    "name": "Samsung T7 Shield 1 To",
+    "category": "Stockage",
+    "price": 95000,
+    "oldPrice": 110000,
+    "rating": 4.8,
+    "stock": 9,
+    "brand": "Samsung",
+    "description": "SSD externe robuste et rapide pour sauvegarder vos projets et fichiers.",
+    "specs": [
+      "1 To",
+      "USB 3.2 Gen 2",
+      "1050 MB/s",
+      "IP65"
+    ],
+    "image": "https://images.unsplash.com/photo-1597848212624-e19f5db5c2a1?w=900",
+    "badge": "-14%"
+  },
+  {
+    "id": "ram-001",
+    "name": "Corsair Vengeance 32 Go DDR5",
+    "category": "Composants",
+    "price": 145000,
+    "rating": 4.7,
+    "stock": 8,
+    "brand": "Corsair",
+    "description": "Kit mémoire haute performance pour station de travail et PC gaming.",
+    "specs": [
+      "32 Go (2x16)",
+      "DDR5 5600",
+      "CL36",
+      "Intel XMP"
+    ],
+    "image": "https://images.unsplash.com/photo-1592664474505-51c6b776a1f3?w=900",
+    "badge": "Performance"
+  },
+  {
+    "id": "cam-001",
+    "name": "Logitech Brio 4K",
+    "category": "Périphériques",
+    "price": 125000,
+    "oldPrice": 139000,
+    "rating": 4.6,
+    "stock": 6,
+    "brand": "Logitech",
+    "description": "Webcam 4K pour visioconférences, cours en ligne et création de contenu.",
+    "specs": [
+      "4K UHD",
+      "HDR",
+      "Autofocus",
+      "USB-C"
+    ],
+    "image": "https://images.unsplash.com/photo-1587826080692-f439cd0b70da?w=900",
+    "badge": "4K"
+  }
+]
