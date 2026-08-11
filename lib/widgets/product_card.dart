@@ -30,7 +30,7 @@ class ProductCard extends ConsumerWidget {
                     child: Text(product.badge!, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w700, fontSize: 11)),
                   )),
                 Positioned(right: 10, top: 10, child: Material(
-                  color: Colors.white.withOpacity(.94),
+                  color: Colors.white.withValues(alpha: 0.94),
                   shape: const CircleBorder(),
                   child: IconButton(
                     tooltip: 'Favori',

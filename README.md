@@ -1,37 +1,34 @@
-# TECHSTORE — Flutter Web E-commerce
+# TechStore — Flutter Web e-commerce
 
-TechStore est une boutique web de matériel informatique réalisée avec **Flutter + Riverpod**. Le projet a été pensé pour répondre au cahier des charges du projet « App e-commerce avec Riverpod » tout en proposant une interface de boutique crédible et non générique.
+TechStore est une boutique web de matériel informatique développée avec Flutter et Riverpod. Le catalogue est chargé de manière asynchrone depuis un JSON local afin de démontrer les états `loading`, `data` et `error` dans l'interface.
 
-## Fonctionnalités couvertes
+## Fonctionnalités
 
-- Catalogue produits : liste + détail.
-- Panier : ajout, suppression, augmentation/diminution des quantités.
-- Favoris persistants localement avec `shared_preferences`.
-- Recherche plein texte.
+- Catalogue informatique : ordinateurs, écrans, stockage, mémoire et périphériques.
+- Liste et détail des produits.
+- Recherche textuelle.
 - Filtrage par catégorie et marque.
 - Tri par prix et note.
+- Panier : ajout, suppression, quantités, sous-total, livraison et total.
+- Favoris persistants localement avec `shared_preferences`.
 - Profil utilisateur mock.
-- États `loading`, `error` et `data` visibles dans l'UI.
-- Données asynchrones via `FutureProvider` depuis `assets/data/products.json`.
-- Plus de 5 providers Riverpod.
-- Logique métier séparée des widgets.
-- Responsive mobile/tablette/desktop.
-- Animation bonus : le bouton d'ajout au panier utilise `AnimatedSwitcher` pour passer visuellement de « Ajouter au panier » à « Ajouté au panier », complété par un `SnackBar` de confirmation.
-- Tests unitaires Riverpod.
+- Gestion explicite des états de chargement et d'erreur avec `AsyncValue`.
+- Bouton Réessayer après une erreur de chargement.
+- Animation `AnimatedSwitcher` lors de l'ajout au panier.
+- Interface responsive pour mobile, tablette et desktop.
 
 ## Architecture
 
 ```text
 lib/
-├── main.dart
-├── models/
-│   └── product.dart
 ├── data/
 │   └── product_repository.dart
+├── models/
+│   └── product.dart
 ├── providers/
-│   ├── product_providers.dart
-│   ├── favorites_provider.dart
 │   ├── cart_provider.dart
+│   ├── favorites_provider.dart
+│   ├── product_providers.dart
 │   └── profile_provider.dart
 ├── router/
 │   └── app_router.dart
@@ -44,73 +41,60 @@ lib/
 ├── theme/
 │   └── app_theme.dart
 └── widgets/
-    ├── app_shell.dart
-    ├── product_card.dart
-    ├── product_image.dart
     ├── add_to_cart_button.dart
-    └── price_text.dart
+    ├── app_shell.dart
+    ├── price_text.dart
+    ├── product_card.dart
+    └── product_image.dart
 ```
 
-## Providers
+## Providers Riverpod
 
-1. `productRepositoryProvider`
-2. `productsProvider` (`FutureProvider`)
-3. `categoriesProvider`
-4. `brandsProvider`
-5. `searchQueryProvider`
-6. `selectedCategoryProvider`
-7. `selectedBrandProvider`
-8. `sortModeProvider`
-9. `filteredProductsProvider`
-10. `productByIdProvider`
-11. `favoritesProvider` (`NotifierProvider`)
-12. `favoriteCountProvider`
-13. `cartProvider` (`NotifierProvider`)
-14. `cartItemsProvider`
-15. `cartCountProvider`
-16. `cartSubtotalProvider`
-17. `cartShippingProvider`
-18. `cartTotalProvider`
-19. `profileProvider`
+Le projet utilise exclusivement Riverpod pour l'état applicatif :
 
-## Lancer le projet
+1. `productRepositoryProvider` — accès aux données.
+2. `productsProvider` — chargement asynchrone du catalogue avec `FutureProvider`.
+3. `categoriesProvider` — catégories disponibles.
+4. `brandsProvider` — marques disponibles.
+5. `searchQueryProvider` — recherche.
+6. `selectedCategoryProvider` — catégorie active.
+7. `selectedBrandProvider` — marque active.
+8. `sortModeProvider` — mode de tri.
+9. `filteredProductsProvider` — catalogue filtré/trié.
+10. `productByIdProvider` — produit par identifiant avec `family`.
+11. `cartProvider` — état métier du panier avec `NotifierProvider`.
+12. `cartItemsProvider` — lignes du panier.
+13. `cartCountProvider` — nombre d'articles.
+14. `cartSubtotalProvider` — sous-total.
+15. `cartShippingProvider` — frais de livraison.
+16. `cartTotalProvider` — total.
+17. `favoritesProvider` — favoris persistants avec `NotifierProvider`.
+18. `favoriteCountProvider` — compteur de favoris.
+19. `profileProvider` — profil mock.
+
+## Données
+
+Les produits sont dans `assets/data/products.json`. Le repository ajoute volontairement un court délai afin que l'état de chargement soit observable pendant la démonstration.
+
+## Installation
 
 ```bash
 flutter pub get
 flutter analyze
 flutter test
+flutter build web --release
 flutter run -d chrome
 ```
 
-Pour une release web :
+## CI
 
-```bash
-flutter build web --release
-```
+GitHub Actions exécute automatiquement :
 
-Le dossier `build/web` peut ensuite être publié sur GitHub Pages, Firebase Hosting, Netlify ou un autre hébergeur.
+- `flutter pub get`
+- `flutter analyze`
+- `flutter test`
+- `flutter build web --release`
 
-## Démonstration du cahier des charges
+## Note de sécurité
 
-### Catalogue
-Accueil avec recherche, filtres, tri, badges, notes, stock et cartes produits.
-
-### Panier
-Ajout, suppression, quantité, sous-total, livraison gratuite à partir de 250 000 FCFA et total.
-
-### Favoris
-Les identifiants sont stockés avec `SharedPreferencesAsync`, donc les favoris restent disponibles après rechargement.
-
-### Données asynchrones
-`productsProvider` charge le JSON via `ProductRepository.fetchProducts()` et expose un `AsyncValue`. L'UI traite explicitement loading/error/data.
-
-### Séparation des responsabilités
-Les modèles, repository, providers et widgets sont dans des couches séparées. Les widgets ne contiennent pas la source du catalogue.
-
-## Note importante
-
-Les images du catalogue sont des URLs de démonstration. Pour une version finale réellement commerciale, remplacez-les par vos propres visuels et ajoutez un backend de paiement/commande sécurisé.
-
-## Auteur
-
-Cheick — Projet Flutter / Web
+Aucune clé API ou token GitHub n'est nécessaire dans l'application. Les tokens GitHub servent uniquement à l'authentification Git et ne doivent jamais être placés dans le code source.
