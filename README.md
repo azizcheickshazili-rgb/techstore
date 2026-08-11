@@ -110,3 +110,12 @@ flutter build web --release
 ```
 
 Aucune API key n'est nécessaire : le catalogue est chargé depuis `assets/data/products.json`.
+
+
+## Plateformes CI
+
+Le workflow GitHub Actions génère les projets natifs Flutter Android et Web avec `flutter create . --platforms android,web` avant les builds. Cela garantit qu'un dépôt source qui ne contient pas initialement le dossier `android/` peut tout de même produire un APK et un build Web.
+
+Artifacts produits par GitHub Actions :
+- `techstore-android-apk` : APK Android compressé
+- `techstore-web-build` : build Web

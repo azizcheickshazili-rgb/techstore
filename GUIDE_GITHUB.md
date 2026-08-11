@@ -132,3 +132,8 @@ Le README fourni explique :
 - le build web
 
 Après avoir lancé l'application, ajoute idéalement 4 à 6 captures d'écran dans `README.md`. Cela rend la soumission beaucoup plus crédible.
+
+
+## APK Android
+
+Le workflow génère le dossier `android/` automatiquement avec Flutter avant `flutter build apk --release`. L'APK est ensuite placé dans `artifacts/techstore-release.apk`, compressé et publié comme artifact GitHub Actions sous le nom `techstore-android-apk`.

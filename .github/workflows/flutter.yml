@@ -29,8 +29,14 @@ jobs:
       - name: Test
         run: flutter test
 
+      - name: Generate Flutter platform projects
+        run: flutter create . --platforms android,web
+
       - name: Verify Flutter Web configuration
         run: test -f web/index.html
+
+      - name: Verify Flutter Android configuration
+        run: test -f android/app/build.gradle.kts || test -f android/app/build.gradle
 
       - name: Build web
         run: flutter build web --release
